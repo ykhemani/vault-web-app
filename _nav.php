@@ -13,9 +13,11 @@
         <li class="nav-item">
           <a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == 'ddc_dp.php') {echo 'active';} ?>" href="ddc_dp.php">Dynamic DB Credentials</a>
         </li>
+<!--
         <li class="nav-item">
           <a class="nav-link <?php if (basename($_SERVER['PHP_SELF']) == 'adp_transform.php') {echo 'active';} ?>" href="adp_transform.php">Advanced Data Protection</a>
         </li>
+-->
       </ul>
     </div>
   </div>
