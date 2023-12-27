@@ -16,21 +16,27 @@
   };
 
   if (
-    isset($_SERVER['HTTP_REFERER']) && 
-    $_SERVER['HTTP_REFERER'] == SERVER . 'ddc_dp.php' && 
+    #isset($_SERVER['HTTP_REFERER']) && 
+    #$_SERVER['HTTP_REFERER'] == SERVER . 'ddc_dp.php' && 
     isset($_POST['formname']) &&
     $_POST['formname'] == 'ddc'
   )
   {
-    if (isset($_POST['ddc']) && $_POST['ddc'] == 1)
+    if (isset($_POST['ddc']))
     {
-      setcookie('ddc', 1, time() + (86400 * 30), '/', "", 1);
-      $ddc = 1;
+      if ($_POST['ddc'] == 1)
+      {
+        setcookie('ddc', 1, time() + (86400 * 30), '/');
+        $ddc = 1;
+      } else {
+        setcookie('ddc', "", time() - 3600, '/');
+        $ddc = 0;
+      }
     } else {
-      setcookie('ddc', 0, time() + (86400 * 30), '/', "", 1);
-      $ddc = 0;
+      setcookie('ddc', "", time() - 3600, '/');
     }
   } elseif (isset($_COOKIE['ddc'])) {
+
     $ddc = $_COOKIE['ddc'];
   };
 
